@@ -1,38 +1,195 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  width: 80%;
+}
+
+.hidden {
+  display: none;
+}
+
+.quote-right,
+.quote-left,
+.feeling i {
+  font-size: 4rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translateX(-50%);
+}
+
+.feeling i {
+  font-size: 10em;
+  top: 20%;
+}
+
+.btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+
+  color: #fff;
+  border: #fff solid 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 15rem;
+  padding: 1.5rem;
+}
+
+.split.left .btn:hover {
+  background-color: rgba(102, 69, 0, 1);
+  border-color: rgba(102, 69, 0, 1);
+}
+
+.split.right .btn:hover {
+  background-color: rgba(218, 47, 71, 1);
+  border-color: rgba(218, 47, 71, 1);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #333;
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left {
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.left::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffcc4e;
+  background: -webkit-linear-gradient(top left, #ffcc4e, #e6b946);
+  background: -moz-linear-gradient(top left, #ffcc4e, #e6b946);
+  background: linear-gradient(to bottom right, #ffcc4e, #e6b946);
+}
+
+.split.right {
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.right::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #333333;
+  background: -webkit-linear-gradient(top left, #333333, #404040);
+  background: -moz-linear-gradient(top left, #333333, #404040);
+  background: linear-gradient(to bottom right, #333333, #404040);
+}
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+  transition: all 1000ms ease-in-out;
+}
+
+.hover-left .left {
+  width: 75%;
+}
+
+.hover-left .right {
+  width: 25%;
+}
+
+.hover-right .right {
+  width: 75%;
+}
+
+.hover-right .left {
+  width: 25%;
+}
+
+.credit > a {
+  border-bottom: 1px dotted;
+}
+
+h2 {
+  font-size: 1rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.credit {
+  bottom: 1rem;
+  left: 2rem;
+  position: fixed;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.talk {
+  bottom: 1rem;
+  right: 2rem;
+  position: fixed;
+  border: #fff 1px solid;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.talk:hover {
+  background-color: rgba(255, 204, 77, 1);
+  color: rgba(102, 69, 0, 1);
+  border-color: rgba(255, 204, 77, 1);
+  transform: scale(0.98);
+}
+
+@media (max-width: 800px) {
+  .quote-left,
+  .quote-right {
+    font-size: 1.5rem;
+    top: 60%;
   }
-  to {
-    transform: rotate(360deg);
+
+  h2 {
+    font-size: 0.75rem;
+  }
+
+  .credit {
+    left: 0.5rem;
+    bottom: 0.1rem;
+  }
+
+  .talk {
+    right: 0.5rem;
+    bottom: 0.1rem;
+  }
+
+  .btn {
+    padding: 1.2rem;
+    width: 12rem;
   }
 }
